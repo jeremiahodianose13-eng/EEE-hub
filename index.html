@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EEE Hub</title>
+
+    <link rel="stylesheet" href="eee.css">
+</head>
+
+<body>
+
+    <div id="splashScreen" class="splash-screen">
+        <div class="splash-content">
+            <div class="splash-logo">EEEHUB</div>
+            <div class="splash-loader">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <p>Loading your department hub...</p>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <div id="loginModal" class="login-modal hidden" aria-hidden="true">
+        <div class="login-card">
+            <button type="button" class="close-login" aria-label="Close login">×</button>
+            <h3>Student Login</h3>
+            <form id="loginForm">
+                <label for="studentName">Full name</label>
+                <input id="studentName" type="text" placeholder="Enter your name" required>
+
+                <label for="studentMatNumber">Matric number</label>
+                <input id="studentMatNumber" type="text" placeholder="Enter your matric number" required>
+
+                <label for="studentDepartment">Department</label>
+                <select id="studentDepartment" required>
+                    <option value="">Select department</option>
+                    <option value="Electrical & Electronics Engineering">Electrical & Electronics Engineering</option>
+                    <option value="Computer Engineering">Computer Engineering</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Civil Engineering">Civil Engineering</option>
+                </select>
+
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebarNav">
+
+        <div class="logo">
+            <span></span>
+            <div>
+                <h2>EEE HUB</h2>
+                <small>Electrical & Electronics Engineering</small>
+            </div>
+        </div>
+
+        <nav>
+            <a href="#home" class="active"><span class="nav-icon" aria-hidden="true">⌂</span><span>Home</span></a>
+            <a href="#materials"><span class="nav-icon" aria-hidden="true">▤</span><span>Materials</span></a>
+            <a href="#questions"><span class="nav-icon" aria-hidden="true">?</span><span>Past Questions</span></a>
+            <a href="#courses"><span class="nav-icon" aria-hidden="true">▦</span><span>Courses</span></a>
+            <a href="#about"><span class="nav-icon" aria-hidden="true">ⓘ</span><span>About</span></a>
+            <a href="#" id="loginNav"><span class="nav-icon" aria-hidden="true">↪</span><span>Login</span></a>
+            <a href="#" id="mobileSignOutBtn" class="mobile-sign-out"><span class="nav-icon" aria-hidden="true">↩</span><span>Sign Out</span></a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <strong>Stronger Together</strong>
+            <p>Share. Learn. Build a better EEE community.</p>
+        </div>
+
+    </aside>
+
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+
+    <!-- MAIN -->
+    <main class="main" id="appMain">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div class="mobile-logo">
+                 EEE HUB
+            </div>
+
+            <div class="top-search">
+                <input
+                    type="text"
+                    id="globalSearch"
+                    placeholder="Search course, materials, past questions..."
+                    aria-label="Search courses, materials, and past questions"
+                >
+                <button class="search-button" type="button" data-search-input="globalSearch" aria-label="Search">Search</button>
+            </div>
+
+            <div class="top-actions">
+                <div class="notification-wrap">
+                    <button class="notification-button" id="notificationButton" type="button" aria-label="Open notifications" aria-expanded="false">
+                        <span class="bell-icon" aria-hidden="true"></span>
+                        <span class="notification-badge" id="notificationBadge">0</span>
+                    </button>
+                    <div class="notification-panel" id="notificationPanel" hidden>
+                        <div class="notification-heading">
+                            <strong>Notifications</strong>
+                            <button type="button" id="clearNotifications">Clear</button>
+                        </div>
+                        <div id="notificationList" class="notification-list">
+                            <p class="empty-notification">No new notifications.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="sign-out-btn" id="signOutBtn" type="button">Sign Out</button>
+                <div class="profile" id="profileBox" role="button" tabindex="0" aria-label="User profile">
+                    <span></span>
+                    <div class="avatar" id="userAvatar">G</div>
+                    <span class="username" id="userName">Guest</span>
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- HOME -->
+        <section id="home" class="section">
+
+            <div class="hero">
+
+                <div class="hero-content">
+
+                    <p class="small-title">WELCOME TO</p>
+
+                    <h1>
+                        EEE Department
+                        <span>Hub</span>
+                    </h1>
+
+                    <p>
+                        Access lecture materials, past questions and
+                        useful resources to help you succeed in your
+                        academic journey.
+                    </p>
+
+                    <div class="hero-search">
+                        <input
+                            type="text"
+                            id="heroSearch"
+                            placeholder="Search materials, courses..."
+                            aria-label="Search materials and courses"
+                        >
+                        <button class="search-button" type="button" data-search-input="heroSearch" aria-label="Search">Search</button>
+                    </div>
+
+                </div>
+
+                <div class="hero-image">
+                    <h2>Powering Tomorrow's Engineers</h2>
+                    <img scr="">
+                </div>
+
+            </div>
+
+
+            <!-- QUICK ACCESS -->
+            <h2 class="section-title">Quick Access</h2>
+
+            <div class="quick-grid">
+
+                <a href="#materials" id="materialsQuickLink" class="quick-card">
+                    <span class="quick-icon green" aria-hidden="true">▤</span>
+                    <span class="quick-card-copy">
+                        <h3>Materials</h3>
+                        <p>Find lecture notes and study resources.</p>
+                    </span>
+                    <span class="quick-card-arrow" aria-hidden="true">→</span>
+                </a>
+
+                <a href="#questions" class="quick-card">
+                    <span class="quick-icon coral" aria-hidden="true">?</span>
+                    <span class="quick-card-copy">
+                        <h3>Past Questions</h3>
+                        <p>Practice previous examination questions.</p>
+                    </span>
+                    <span class="quick-card-arrow" aria-hidden="true">→</span>
+                </a>
+
+                <a href="#courses" class="quick-card">
+                    <span class="quick-icon blue" aria-hidden="true">▦</span>
+                    <span class="quick-card-copy">
+                        <h3>Courses</h3>
+                        <p>View available first-semester courses.</p>
+                    </span>
+                    <span class="quick-card-arrow" aria-hidden="true">→</span>
+                </a>
+
+                <a href="#about" class="quick-card">
+                    <span class="quick-icon amber" aria-hidden="true">ⓘ</span>
+                    <span class="quick-card-copy">
+                        <h3>About</h3>
+                        <p>Learn about the department hub.</p>
+                    </span>
+                    <span class="quick-card-arrow" aria-hidden="true">→</span>
+                </a>
+
+            </div>
+
+
+            <!-- COURSES -->
+            <div id="courses">
+
+                <div class="title-row">
+                    <h2 class="section-title">Popular Courses</h2>
+                </div>
+
+
+                <div class="course-grid">
+
+                    <div class="course-card">
+                        <div class="course-icon" aria-hidden="true">▦</div>
+                        <div>
+                            <h3>ENT211</h3>
+                            <p>First Semester Course</p>
+                        </div>
+                    </div>
+
+
+                    <div class="course-card">
+                        <div class="course-icon" aria-hidden="true">▦</div>
+                        <div>
+                            <h3>GET201</h3>
+                            <p>First Semester Course</p>
+                        </div>
+                    </div>
+
+
+                    <div class="course-card">
+                        <div class="course-icon" aria-hidden="true">▦</div>
+                        <div>
+                            <h3>GET203</h3>
+                            <p>First Semester Course</p>
+                        </div>
+                    </div>
+
+
+                    <div class="course-card">
+                        <div class="course-icon" aria-hidden="true">▦</div>
+                        <div>
+                            <h3>GET205</h3>
+                            <p>First Semester Course</p>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-icon" aria-hidden="true">▦</div>
+                        <div>
+                            <h3>GET207</h3>
+                            <p>First Semester Course</p>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-icon" aria-hidden="true">▦</div>
+                        <div>
+                            <h3>GET209</h3>
+                            <p>First Semester Course</p>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-icon" aria-hidden="true">▦</div>
+                        <div>
+                            <h3>GET211</h3>
+                            <p>First Semester Course</p>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-icon" aria-hidden="true">▦</div>
+                        <div>
+                            <h3>GST212</h3>
+                            <p>First Semester Course</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- MATERIALS -->
+        <section id="materials" class="section">
+
+            <div class="page-heading">
+                <h1>Materials</h1>
+                <p>Find and download lecture notes and study materials.</p>
+            </div>
+
+
+            <div class="filters">
+
+                <select id="levelFilter">
+                    <option value="all">All Levels</option>
+                    <option value="100">100 Level</option>
+                    <option value="200">200 Level</option>
+                    <option value="300">300 Level</option>
+                    <option value="400">400 Level</option>
+                    <option value="500">500 Level</option>
+                </select>
+
+
+                <select id="semesterFilter">
+                    <option value="all">All Semesters</option>
+                    <option value="first">First Semester</option>
+                    <option value="second">Second Semester</option>
+                </select>
+
+
+                <select id="courseFilter">
+                    <option value="all">All Courses</option>
+                    <option value="ENT211">ENT211</option>
+                    <option value="GET201">GET201</option>
+                    <option value="GET203">GET203</option>
+                    <option value="GET205">GET205</option>
+                    <option value="GET207">GET207</option>
+                    <option value="GET209">GET209</option>
+                    <option value="GET211">GET211</option>
+                    <option value="GST212">GST212</option>
+                </select>
+
+                <button type="button" id="openMaterialModalBtn" class="add-material-btn">+ Add Material</button>
+
+            </div>
+
+            <div id="materialModal" class="admin-material-modal hidden" aria-hidden="true">
+                <div class="admin-material-card">
+                    <button type="button" class="close-material-modal" aria-label="Close add material">×</button>
+                    <h3>Add New Material</h3>
+                    <form id="addMaterialForm">
+                        <label for="materialTitle">Material title</label>
+                        <input id="materialTitle" type="text" required>
+                        <label for="materialDescription">Description</label>
+                        <input id="materialDescription" type="text" required>
+                        <label for="materialFile">File path or URL</label>
+                        <input id="materialFile" type="text" placeholder="Optional when uploading a file">
+                        <label for="materialUpload">Upload file</label>
+                        <input id="materialUpload" type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,.txt">
+                        <div class="form-row form-details-row">
+                            <div class="form-field">
+                                <label for="materialLevel">Level</label>
+                                <select id="materialLevel" required>
+                                    <option value="100">100</option><option value="200" selected>200</option>
+                                    <option value="300">300</option><option value="400">400</option><option value="500">500</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label for="materialSemester">Semester</label>
+                                <select id="materialSemester" required>
+                                    <option value="first" selected>First Semester</option><option value="second">Second Semester</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label for="materialCourse">Course code</label>
+                                <select id="materialCourse" required>
+                                    <option value="">Select course</option>
+                                    <option value="ENT211">ENT211</option>
+                                    <option value="GET201">GET201</option>
+                                    <option value="GET203">GET203</option>
+                                    <option value="GET205">GET205</option>
+                                    <option value="GET207">GET207</option>
+                                    <option value="GET209">GET209</option>
+                                    <option value="GET211">GET211</option>
+                                    <option value="GST212">GST212</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="submit-material-btn">Save Material</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="materialsList" class="materials-list"></div>
+        </section>
+
+
+        <!-- PAST QUESTIONS -->
+        <section id="questions" class="section">
+            <div class="page-heading">
+                <h1>Past Questions</h1>
+                <p>Practice previous examination questions.</p>
+            </div>
+
+            <div class="question-search">
+                <input type="text" id="questionSearch" placeholder="Search past questions..." aria-label="Search past questions">
+                <button class="search-button" id="questionSearchButton" type="button" aria-label="Search past questions">Search</button>
+            </div>
+
+            <div class="filters question-filters">
+                <select id="questionLevelFilter">
+                    <option value="all">All Levels</option>
+                    <option value="100">100 Level</option><option value="200">200 Level</option>
+                    <option value="300">300 Level</option><option value="400">400 Level</option><option value="500">500 Level</option>
+                </select>
+                <select id="questionSemesterFilter">
+                    <option value="all">All Semesters</option>
+                    <option value="first">First Semester</option><option value="second">Second Semester</option>
+                </select>
+                <button type="button" id="openQuestionModalBtn" class="add-material-btn">+ Add Past Question</button>
+            </div>
+
+            <div id="questionModal" class="admin-material-modal hidden" aria-hidden="true">
+                <div class="admin-material-card question-modal-card">
+                    <button type="button" class="close-question-modal" aria-label="Close add past question">×</button>
+                    <div class="question-modal-heading">
+                        <span class="modal-kicker">Past Questions</span>
+                        <h3>Add Past Question</h3>
+                        <p>Share an examination paper with the EEE Hub community.</p>
+                    </div>
+                    <form id="addQuestionForm">
+                        <div class="form-field">
+                            <label for="questionTitle">Question title</label>
+                            <input id="questionTitle" type="text" placeholder="Add past question" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="questionDescription">Description</label>
+                            <input id="questionDescription" type="text" placeholder="First Semester examination paper" required>
+                        </div>
+                        <div class="question-file-field">
+                            <div class="form-field">
+                                <label for="questionFile">File path or URL</label>
+                                <input id="questionFile" type="text" placeholder="Optional when uploading a file">
+                            </div>
+                            <span class="question-file-divider">or</span>
+                            <div class="form-field">
+                                <label for="questionUpload">Upload file</label>
+                                <input id="questionUpload" type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,.txt">
+                            </div>
+                        </div>
+                        <div class="form-row form-details-row">
+                            <div class="form-field"><label for="questionLevel">Level</label><select id="questionLevel" required><option value="100">100</option><option value="200" selected>200</option><option value="300">300</option><option value="400">400</option><option value="500">500</option></select></div>
+                            <div class="form-field"><label for="questionSemester">Semester</label><select id="questionSemester" required><option value="first" selected>First Semester</option><option value="second">Second Semester</option></select></div>
+                        </div>
+                        <button type="submit" class="submit-material-btn question-submit-btn">Save Past Question <span aria-hidden="true">→</span></button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="questionList" class="question-list"></div>
+        </section>
+
+
+        <!-- ABOUT -->
+        <section id="about" class="section about">
+            <h1>About EEE Hub</h1>
+            <p>
+                EEE Hub is a student-focused platform created to make
+                academic materials and past questions easier to access.
+            </p>
+
+            <div class="about-box">
+                <h2>Share. Learn. Build.</h2>
+                <p>Students can access useful materials and prepare better for their examinations.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2026 EEE Hub • Built for students to learn, share, and grow. Created by Jerry.</p>
+    </footer>
+
+    <script src="eee.js"></script>
+
+</body>
+</html>
